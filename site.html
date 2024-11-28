@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Girişi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            text-align: center;
+        }
+        input {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .hidden {
+            display: none;
+        }
+        .homepage {
+            background-color: #e0f7fa;
+            color: #00796b;
+        }
+        .homepage h1 {
+            font-size: 2.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Giriş Ekranı -->
+    <div id="loginScreen" class="container">
+        <h2>Site Girişi</h2>
+        <input type="text" id="username" placeholder="Kullanıcı Adı">
+        <input type="password" id="password" placeholder="Şifre">
+        <button onclick="checkLogin()">Giriş Yap</button>
+        <p id="message" style="color: red; margin-top: 10px;"></p>
+    </div>
+
+    <!-- Ana Sayfa -->
+    <div id="homeScreen" class="container hidden homepage">
+        <h1>Hoş Geldiniz! Giriş Başarılı 🎉</h1>
+    </div>
+
+    <script>
+        function checkLogin() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const message = document.getElementById("message");
+
+            if (username === "yahya123" && password === "yahya123") {
+                // Giriş ekranını gizle, ana sayfayı göster
+                document.getElementById("loginScreen").classList.add("hidden");
+                document.getElementById("homeScreen").classList.remove("hidden");
+            } else {
+                message.style.color = "red";
+                message.textContent = "Kullanıcı adı veya şifre hatalı.";
+            }
+        }
+    </script>
+</body>
+</html>
